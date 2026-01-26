@@ -1,15 +1,15 @@
 from flask_wtf import FlaskForm
-from flask_wtf import StringField, PasswordField, Submitfield
-from wtforms.validators import inputrequired
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import InputRequired
 
 class RegisterForm(FlaskForm):
     name = StringField("Navn", validators=[InputRequired()])
-    username = StringField("Brukernavn", validators=[Inputrequired()])
-    classname = StringField("Klasse", validators=[Inputrequred()])
+    username = StringField("Brukernavn", validators=[InputRequired()])
+    classname = StringField("Klasse", validators=[InputRequired()])
     password = PasswordField("Passord", validators=[InputRequired()])
     submit = SubmitField("Registrer")
 
 class LoginForm(FlaskForm):
     username = StringField("Brukernavn", validators=[InputRequired()])
-    password = StringField("Passord", validators=[InputRequired()])
+    password = PasswordField("Passord", validators=[InputRequired()])
     submit = SubmitField("Logg inn")
