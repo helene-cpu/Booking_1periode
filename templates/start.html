@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Hello World!</p>
+
+<form>
+    <label for="rom">Velg ett rom du vil reservere</label> 
+    <select id="rom">
+        <option value="">-- Velg rom --</option>
+        <option value="/fotostudio">Fotostudio</option>
+        <option value="/lydstudio">Lydstudio</option>
+    </select>
+</form>
+
+<script src="/static/js/main.js"></script>
+
 {% endblock %}
