@@ -71,5 +71,13 @@ def register():
 
     return render_template("register.html", form=form)
 
+@app.route('/fotostudio')
+def fotostudio():
+    return render_template("fotostudio.html")
+
+@app.route('/lydstudio')
+def lydstudio():
+    return render_template("lydstudio.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
