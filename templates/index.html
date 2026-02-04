@@ -1,16 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Logg inn</h1>
 
-<form method="POST">
+<div class="boks">
+    <div class="tittel">
+        <h1>Logg inn</h1>
+    </div>
+    <form method="POST">
     {{ form.hidden_tag() }}
-    {{ form.username.label }} {{ form.username() }} <br>
+    {{ form.username.label }}<br> 
+    {{ form.username() }} <br>
 
-    {{ form.password.label }} {{ form.password() }} <br>
+    {{ form.password.label }}<br> {{ form.password() }} <br>
     {{ form.submit() }}
-</form>
+    </form>
 
-<h1>Eller logg inn her</h1>
-<a href="/register">Registrer</a>
+    <h1>Eller registrer deg her</h1>
+   <a href="/register">Register</a>
+</div>
 {% endblock %}
