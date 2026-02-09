@@ -2,15 +2,28 @@
 
 {% block content %}
 
-<form>
-    <label for="rom">Velg ett rom du vil reservere</label> 
-    <select id="rom">
-        <option value="">-- Velg rom --</option>
-        <option value="/fotostudio">Fotostudio</option>
-        <option value="/lydstudio">Lydstudio</option>
-    </select>
-</form>
+<div class="boks">
+    <h1>Reserver studio</h1>
 
-<script src="/static/js/main.js"></script>
+    <form method="post" action="/book">
+        <label for="rom">Velg rom</label>
+        <select name="rom" id="rom" required>
+            <option value="">-- Velg rom--</option>
+            <option value="lydstudio">Lydstudio</option>
+            <option value="fotostudio">Fotostudio</option>
+        </select>
+
+        <label for="dato">Dato</label>
+        <input type="date" name="dato" required>
+
+        <label for="start_tid">Start tid</label>
+        <input type="time" name="start_tid" required>
+
+        <label for="slutt_tid">Slutt tid</label>
+        <input type="time" name="slutt_tid" required>
+        
+        <button type="submit">Reserver</button>
+    </form>
+</div>
 
 {% endblock %}

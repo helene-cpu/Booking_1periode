@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, session
+from flask import Flask, render_template, redirect, session, request
 from werkzeug.security import generate_password_hash, check_password_hash
 import mysql.connector
 from forms import RegisterForm, LoginForm
@@ -82,6 +82,19 @@ def lydstudio():
 @app.route('/faq')
 def faq():
     return render_template("faq.html")
+
+@app.route('/book', methods=["POST"])
+def book():
+    if "user" not in session:
+        return redirect("/")
+
+    rom = request.form["rom"]
+    dato = request.form["dato"]
+    start_tid = request.form["start_tid"]
+    slutt_tid = request.form["slutt_tid"]
+    brukernavn = session["user"]
+
+    return render_template("bekreftet.html", rom=rom, dato=dato, start_tid=start_tid, slutt_tid=slutt_tid)
 
 if __name__ == "__main__":
     app.run(debug=True)
