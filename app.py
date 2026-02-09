@@ -94,6 +94,18 @@ def book():
     slutt_tid = request.form["slutt_tid"]
     brukernavn = session["user"]
 
+     conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("""
+        INSERT INTO bookinger (brukernavn, rom, dato, start_tid, slutt_tid)
+        VALUES (%s, %s, %s, %s, %s)
+    """, (brukernavn, rom, dato, start_tid, slutt_tid))
+
+    conn.commit()
+    cur.close()
+    conn.close()
+
     return render_template("bekreftet.html", rom=rom, dato=dato, start_tid=start_tid, slutt_tid=slutt_tid)
 
 if __name__ == "__main__":
